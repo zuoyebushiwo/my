@@ -108,4 +108,8 @@ public class Test extends TestCase {
 		pattern("junxuezhang@yeah.net");
 	}
 	
+	static void main(String[] args) {
+		//int i = 078;
+	}
+	
 }
