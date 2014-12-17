@@ -1,12 +1,14 @@
 package com.zhangxuej.thread.high.producerconsumer.book;
 
+import java.nio.IntBuffer;
+
 /**
  * 消费者
  * 
  * @author hadoop
  */
 public class Consumer extends Thread {
-
+	
 	private int neednum;	// 消费产品的数量
 	private Godown godown; 	// 仓库
 	
