@@ -15,11 +15,13 @@ public class User {
 	 * 
 	 * @param x 添加x万元
 	 */
-	public synchronized void oper(int x) {
+	public void oper(int x) {
 		try {
 			Thread.sleep(10L);
-			this.cash += x;
-			System.out.println(Thread.currentThread().getName() + "运行结束，增加" + x + ", 当前账户余额为：" + cash);
+			synchronized (this) {
+				this.cash += x;
+				System.out.println(Thread.currentThread().getName() + "运行结束，增加" + x + ", 当前账户余额为：" + cash);
+			}
 			Thread.sleep(10L);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
