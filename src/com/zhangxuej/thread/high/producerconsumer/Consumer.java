@@ -18,7 +18,7 @@ public class Consumer extends Thread {
 	@Override
 	public void run() {
 		try {
-			storage.consumer();
+			storage.consumer(oper);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

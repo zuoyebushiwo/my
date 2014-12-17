@@ -11,33 +11,54 @@ import java.util.List;
 public class Storage {
 
 	// 仓储最大值
-	public static int max = 10;
-	
-	private List<Integer> objs = new ArrayList<Integer>();
-	
-	public void producer(int oper) throws InterruptedException {
-		Thread.sleep(10L);
-		synchronized (this) {
-			if (objs.size() >= max) {
-				System.out.println("仓储已满，等待");
-				wait();
-				System.out.println("仓储未满，被唤醒");
-			} else {
-				objs.add(oper);
-			}
-		}
-		Thread.sleep(10L);
+	public static int max_size = 100;
+	public int curnum;
+
+	public Storage(int curnum) {
+		this.curnum = curnum;
 	}
-	
-	public void consumer() throws InterruptedException {
-		Thread.sleep(10L);
-		synchronized (this) {
-			if (objs.size() > 0) {
-				objs.remove(0);
-			}
-			notifyAll();
+
+	/**
+	 * 生产指定数量的产品
+	 * 
+	 * @param neednum
+	 * @throws InterruptedException
+	 */
+	public synchronized void producer(int neednum) throws InterruptedException {
+		// 测试是否需要生产
+		while (curnum + neednum >= max_size) {
+			System.out.println("要生产的产品数量" + neednum + "超过剩余库存量"
+					+ (max_size - curnum) + ", 暂时不能执行生产任务！");
+			wait();
 		}
-		Thread.sleep(10L);
+
+		// 满足生产条件，则进行生产，这里简单的更改当前库存量
+		curnum += neednum;
+		System.out.println("已经生产了" + neednum + "个产品，现仓储量为" + curnum);
+
+		// 唤醒在此对象监视器上等待的所有线程
+		notifyAll();
 	}
-	
+
+	/**
+	 * 消费指定数量的产品
+	 * 
+	 * @param neednum
+	 * @throws InterruptedException
+	 */
+	public synchronized void consumer(int neednum) throws InterruptedException {
+		// 测试是否可消费
+		while (neednum > curnum) {
+			System.out.println("当前需消费的数量" + neednum + "大于剩余库存量" + curnum + "等待之。");
+			wait();
+		}
+		
+		// 满足消费条件，则进行消费，这里简单的更改当前库存量
+		curnum -= neednum;
+		System.out.println("已经消费了" + neednum + "个产品，现仓储量为" + curnum);
+		
+		// 唤醒在此对象监视器上等待的所有线程
+		notifyAll();
+	}
+
 }
