@@ -1,4 +1,4 @@
-package com.zhangxuej.thread.high.current.lock;
+package com.zhangxuej.thread.high.current.lock.reentrantlock;
 
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
