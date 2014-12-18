@@ -15,9 +15,9 @@ public class Test {
 		MyPool myPool = new MyPool(20);
 		// 创建线程池
 		ExecutorService pool = Executors.newFixedThreadPool(2);
-		MyThread t1 = new MyThread("任务A", myPool, 21);
+		MyThread t1 = new MyThread("任务A", myPool, 3);
 		MyThread t2 = new MyThread("任务B", myPool, 12);
-		MyThread t3 = new MyThread("任务C", myPool, 7);
+		MyThread t3 = new MyThread("任务C", myPool, 19);
 		
 		// 在线程池中执行任务
 		pool.execute(t1);
