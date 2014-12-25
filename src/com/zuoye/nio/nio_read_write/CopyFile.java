@@ -13,7 +13,6 @@ public class CopyFile {
 		String path = System.getProperty("user.dir");
 		
 		args = new String[] {path + "/src/com/zuoye/nio/nio_read_write/CopyFile.java", path + "/src/com/zuoye/nio/nio_read_write/CopyFileTest.java"};
-		
 		if (args.length > 2) {
 			System.err.println("Usage: java CopyFile infile outfile");
 			System.exit(1);
