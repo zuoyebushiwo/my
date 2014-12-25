@@ -20,7 +20,7 @@ public class Worker implements Cloneable, Serializable {
 		this.age = 0;
 	}
 	
-	public Worker(String name, int age) {
+	public Worker(String name, Integer age) {
 		this.name = name;
 		this.age = age;
 	}
