@@ -33,7 +33,7 @@ public class ClientSocket {
 			// 捕获来自服务器端另外一个输入流：键盘的数据。如果有数据，则发送给服务器端
 			if (keyword.ready()) {
 				String test = keyword.readLine();
-				pw.print(test);
+				pw.println(test);
 				System.out.println("Client: " + test);
 			}
 		}

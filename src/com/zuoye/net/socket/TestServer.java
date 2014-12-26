@@ -37,7 +37,7 @@ public class TestServer {
 			if (keyword.ready()) {
 				// 捕获来自服务器端另外一个输入流：键盘的数据。如果有数据，则发送给客户端
 				String test = keyword.readLine();
-				writer.print(test);
+				writer.println(test);
 				System.out.println("Server:" + test);
 			}
 		}
