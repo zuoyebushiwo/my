@@ -21,7 +21,7 @@ public class ClientSocket {
 		
 		// 3.连接成功后，获取相应的输入输出流，进行数据交互
 		BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
+		PrintWriter pw = new PrintWriter(socket.getOutputStream(), true);
 		BufferedReader keyword = new BufferedReader(new InputStreamReader(System.in));
 		
 		while (true) {
