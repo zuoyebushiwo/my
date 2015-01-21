@@ -1,8 +1,8 @@
-package com.company.target.collections;
+package com.company.target;
 
 import java.util.Collection;
 
-public class Test {
+public class Target {
 
 	Collection<Object> oo;
 	
