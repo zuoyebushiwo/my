@@ -26,6 +26,7 @@ public class Target {
 	 * 17.struts
 	 * 18.hash算法
 	 * 19.垃圾收集器
+	 * 20.匿名内部类
 	 */
 	
 }
