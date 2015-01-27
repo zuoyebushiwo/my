@@ -1,5 +1,7 @@
 package com.company.target.collections.ch07;
 
+import java.util.Stack;
+
 
 /**
  * ∂”¡–∫Õ∂—’ª
@@ -16,6 +18,8 @@ public class Test {
 		queue.dequeue();
 		
 		System.out.println(queue.front());
+		
+		Stack<Object> stack = new Stack<Object>();
 	}
 	
 }
