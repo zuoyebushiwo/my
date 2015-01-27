@@ -1,0 +1,283 @@
+The line is:
+BinSearchTree
+This BinSearchTree object has been constructed.
+Here is the BinSearchTree:
+
+
+
+
+The line is:
+size
+The size of this BinSearchTree object is 0
+Here is the BinSearchTree:
+
+
+
+
+The line is:
+isEmpty
+This BinSearchTree object is empty? true
+Here is the BinSearchTree:
+
+
+
+
+The line is:
+add 35
+35 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+
+
+
+
+The line is:
+add 46
+46 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+46
+
+
+
+
+The line is:
+add 40
+40 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+40
+46
+
+
+
+
+The line is:
+size
+The size of this BinSearchTree object is 3
+Here is the BinSearchTree:
+35
+40
+46
+
+
+
+
+The line is:
+contains 41
+41 is contained in this BinSearchTree object? false
+Here is the BinSearchTree:
+35
+40
+46
+
+
+
+
+The line is:
+contains 40
+40 is contained in this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+40
+46
+
+
+
+
+The line is:
+add 50
+50 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+40
+46
+50
+
+
+
+
+The line is:
+add 60
+60 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+add 10
+10 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+10
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+add 20
+20 has been inserted into this BinSearchTree object? true
+Here is the BinSearchTree:
+10
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+add 40
+40 has been inserted into this BinSearchTree object? false
+Here is the BinSearchTree:
+10
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+iterator
+This iterator has been constructed.
+Here is the BinSearchTree:
+10
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+hasNext
+This iterator is not positioned beyond the end of the BinSearchTree object? true
+Here is the BinSearchTree:
+10
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+next
+The element returned by this iterator's next method is 10
+Here is the BinSearchTree:
+10
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+remove
+The element last returned by this iterator has been removed from the BinSearchTree object.
+Here is the BinSearchTree:
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+contains 10
+10 is contained in this BinSearchTree object? false
+Here is the BinSearchTree:
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+remove 10
+10 has been removed from this BinSearchTree object? false
+Here is the BinSearchTree:
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+size
+The size of this BinSearchTree object is 6
+Here is the BinSearchTree:
+20
+35
+40
+46
+50
+60
+
+
+
+
+The line is:
+remove 46
+46 has been removed from this BinSearchTree object? true
+Here is the BinSearchTree:
+20
+35
+40
+50
+60
+
+
+
+
+The line is:
+remove 46
+46 has been removed from this BinSearchTree object? false
+Here is the BinSearchTree:
+20
+35
+40
+50
+60
+
+
+
+

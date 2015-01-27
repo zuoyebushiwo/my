@@ -1,0 +1,23 @@
+BinSearchTree
+size
+isEmpty
+add 35
+add 46
+add 40
+size
+contains 41
+contains 40
+add 50
+add 60
+add 10
+add 20
+add 40
+iterator
+hasNext
+next
+remove
+contains 10
+remove 10
+size
+remove 46
+remove 46
