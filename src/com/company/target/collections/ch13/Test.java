@@ -1,10 +1,15 @@
 package com.company.target.collections.ch13;
 
+import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.Stack;
 import java.util.TreeMap;
+import java.util.Vector;
 
 /**
  * ¼ìË÷ºÍÉ¢ÁÐÀà
@@ -45,6 +50,16 @@ public class Test {
 		System.out.println(i.hashCode());
 		
 		HashSet<Object> hashSet;
+		
+		Iterator<Object> iterator;
+		
+		Vector<Object> vector;
+		
+		Stack<Object> stack;
+		
+		SortedSet<Object> sortedSet;
+		
+		AbstractMap<Object, Object> abstractMap;
 		
 	}
 	
