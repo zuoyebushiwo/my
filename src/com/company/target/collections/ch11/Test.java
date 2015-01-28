@@ -5,6 +5,6 @@ import java.util.PriorityQueue;
 public class Test {
 
 	PriorityQueue<Object> queue;
-	
+
 	
 }
