@@ -1,7 +1,7 @@
 package com.company.target.pattern.ch01;
 
 /**
- * 鸭子积累
+ * 鸭子超类
  */
 public abstract class Duck {
 
