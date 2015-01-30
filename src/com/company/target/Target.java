@@ -3,7 +3,7 @@ package com.company.target;
 import java.util.Collection;
 
 public class Target {
-
+ 
 	Collection<Object> oo;
 	
 	/**
