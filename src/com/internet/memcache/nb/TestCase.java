@@ -18,6 +18,7 @@ import org.junit.Test;
 
 public class TestCase { 
 //	@Test
+	//
 //	public void test1() throws IOException {
 //		MemcachedClientBuilder builder = new XMemcachedClientBuilder(
 //				AddrUtil.getAddresses("192.168.139.128:11211"));
