@@ -16,7 +16,7 @@ import net.rubyeye.xmemcached.utils.AddrUtil;
 
 import org.junit.Test;
 
-public class TestCase {
+public class TestCase { 
 //	@Test
 //	public void test1() throws IOException {
 //		MemcachedClientBuilder builder = new XMemcachedClientBuilder(
