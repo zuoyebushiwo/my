@@ -1,4 +1,4 @@
-package com.company.target.pattern.state;
+package com.company.target.pattern.ch10.state;
 
 public class GumballMachine {
  
