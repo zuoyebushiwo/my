@@ -1,17 +1,19 @@
 package com.company.target.pattern.ch11.proxy.gumball;
 
+import java.rmi.RemoteException;
+
 /**
  * 糖果售卖机的库存以及状态监视
  */
 public class GumballMonitor {
 
-	GumballMachine machine;
+	GumballMachineRemote machine;
 
-	public GumballMonitor(GumballMachine machine) {
+	public GumballMonitor(GumballMachineRemote machine) {
 		this.machine = machine;
 	}
 
-	public void report() {
+	public void report() throws RemoteException {
 		System.out.println("Gumball Machine: " + machine.getLocation());
 		System.out.println("Current inventory: " + machine.getCount()
 				+ " gumballs");

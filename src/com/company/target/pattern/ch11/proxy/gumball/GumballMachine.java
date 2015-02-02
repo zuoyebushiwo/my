@@ -1,9 +1,14 @@
 package com.company.target.pattern.ch11.proxy.gumball;
 
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+
 /**
  * 糖果售卖机
  */
-public class GumballMachine {
+@SuppressWarnings("serial")
+public class GumballMachine extends UnicastRemoteObject implements
+		GumballMachineRemote {
 
 	/**
 	 * 售罄
@@ -39,7 +44,8 @@ public class GumballMachine {
 	 */
 	String location;
 
-	public GumballMachine(String location, int numberGumballs) {
+	public GumballMachine(String location, int numberGumballs)
+			throws RemoteException {
 		soldOutState = new SoldOutState(this);
 		noQuarterState = new NoQuarterState(this);
 		hasQuarterState = new HasQuarterState(this);
@@ -96,7 +102,8 @@ public class GumballMachine {
 	 * 
 	 * @return
 	 */
-	int getCount() {
+	@Override
+	public int getCount() {
 		return count;
 	}
 
@@ -110,10 +117,12 @@ public class GumballMachine {
 		state = noQuarterState;
 	}
 
+	@Override
 	public State getState() {
 		return state;
 	}
 
+	@Override
 	public String getLocation() {
 		return location;
 	}
