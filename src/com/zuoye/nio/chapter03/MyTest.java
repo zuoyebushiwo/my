@@ -10,6 +10,7 @@ import java.nio.channels.Channel;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.FileChannel;
 import java.nio.channels.InterruptibleChannel;
+import java.nio.channels.Pipe;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.SelectableChannel;
 import java.nio.channels.ServerSocketChannel;
@@ -78,6 +79,8 @@ public class MyTest {
 		DatagramChannel datagramChannel;
 		
 		SocketChannel socketChannel;
+		
+		Pipe pipe;
 	}
 
 }
