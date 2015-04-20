@@ -11,6 +11,7 @@ import java.nio.channels.DatagramChannel;
 import java.nio.channels.FileChannel;
 import java.nio.channels.InterruptibleChannel;
 import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.SelectableChannel;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.channels.WritableByteChannel;
@@ -67,6 +68,16 @@ public class MyTest {
 		byteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
 		
 		MappedByteBuffer mappedByteBuffer;
+		
+		SelectableChannel selectableChannel;
+		
+		AbstractSelectableChannel abstractSelectableChannel;
+		
+		ServerSocketChannel serverSocketChannel;
+		
+		DatagramChannel datagramChannel;
+		
+		SocketChannel socketChannel;
 	}
 
 }
