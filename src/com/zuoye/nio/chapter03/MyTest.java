@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.Channel;
 import java.nio.channels.DatagramChannel;
 import java.nio.channels.FileChannel;
@@ -40,23 +41,32 @@ public class MyTest {
 
 	public static void main(String[] args) throws IOException {
 
-		SocketChannel sc = SocketChannel.open();
-		sc.connect(new InetSocketAddress("somehost", 80));
+//		SocketChannel sc = SocketChannel.open();
+//		sc.connect(new InetSocketAddress("somehost", 80));
+//		
+//		ServerSocketChannel ssc = ServerSocketChannel.open();
+//		ssc.socket().bind(new InetSocketAddress(81));
+//		
+//		DatagramChannel dc = DatagramChannel.open();
+//		
+//		RandomAccessFile raf = new RandomAccessFile("somefile", "r");
+//		
+//		FileChannel fc = raf.getChannel();
+//		
+//		FileInputStream input = new FileInputStream("filename");
+//		FileChannel channel = input.getChannel();
+//		
+//		channel.write(ByteBuffer.wrap("something".getBytes()));
 		
-		ServerSocketChannel ssc = ServerSocketChannel.open();
-		ssc.socket().bind(new InetSocketAddress(81));
 		
-		DatagramChannel dc = DatagramChannel.open();
+		FileChannel fileChannel = null;
 		
-		RandomAccessFile raf = new RandomAccessFile("somefile", "r");
+		ByteBuffer byteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY,
+				100, 200);
 		
-		FileChannel fc = raf.getChannel();
+		byteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
 		
-		FileInputStream input = new FileInputStream("filename");
-		FileChannel channel = input.getChannel();
-		
-		channel.write(ByteBuffer.wrap("something".getBytes()));
-		
+		MappedByteBuffer mappedByteBuffer;
 	}
 
 }
