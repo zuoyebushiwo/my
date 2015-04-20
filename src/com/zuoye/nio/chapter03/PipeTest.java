@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.Pipe;
-import java.nio.channels.Pipe.SinkChannel;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
+import java.util.Random;
 
 /**
 * Test Pipe objects using a worker thread.
@@ -80,8 +80,14 @@ public class PipeTest {
 				"My karma ran over my dogma"
 				};
 		
+		private Random rand = new Random( );
+		
 		private void doSomeWork(ByteBuffer buffer) {
-			
+			int product = rand.nextInt(products.length);
+			buffer.clear();
+			buffer.put(products[product].getBytes());
+			buffer.put ("\r\n".getBytes( ));
+			buffer.flip();
 		}
 		
 	}
