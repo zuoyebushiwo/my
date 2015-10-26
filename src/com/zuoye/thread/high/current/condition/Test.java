@@ -4,25 +4,25 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * JavaÏß³Ì£ºÌõ¼þ±äÁ¿
+ * Javaï¿½ß³Ì£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  */
 public class Test {
 
 	public static void main(String[] args) {
 
-		// ´´½¨²¢·¢·ÃÎÊµÄÕË»§
-		MyCount myCount = new MyCount("ÕÅÑ©¾ü", 10000);
-		// ´´½¨Ò»¸öÏß³Ì³Ø
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ë»ï¿½
+		MyCount myCount = new MyCount("aa", 10000);
+		// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ß³Ì³ï¿½
 		ExecutorService pool = Executors.newFixedThreadPool(2);
 
-		Thread t1 = new SaveThread("ÕÅÈý", myCount, 2000);
-		Thread t2 = new SaveThread("ÀîËÄ", myCount, 3600);
-		Thread t3 = new DrawThread("ÍõÎå", myCount, 17000);
-		Thread t4 = new SaveThread("ÀÏÕÅ", myCount, 600);
-		Thread t5 = new DrawThread("ÀÏÅ£", myCount, 1300);
-		Thread t6 = new DrawThread("ÅÖ×Ó", myCount, 800);
+		Thread t1 = new SaveThread("ï¿½ï¿½ï¿½ï¿½", myCount, 2000);
+		Thread t2 = new SaveThread("ï¿½ï¿½ï¿½ï¿½", myCount, 3600);
+		Thread t3 = new DrawThread("ï¿½ï¿½ï¿½ï¿½", myCount, 17000);
+		Thread t4 = new SaveThread("ï¿½ï¿½ï¿½ï¿½", myCount, 600);
+		Thread t5 = new DrawThread("ï¿½ï¿½Å£", myCount, 1300);
+		Thread t6 = new DrawThread("ï¿½ï¿½ï¿½ï¿½", myCount, 800);
 		
-		// Ö´ÐÐ¸÷¸öÏß³Ì
+		// Ö´ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 		pool.execute(t1);
 		pool.execute(t2);
 		pool.execute(t3);
@@ -30,7 +30,7 @@ public class Test {
 		pool.execute(t5);
 		pool.execute(t6);
 		
-		// ¹Ø±ÕÏß³Ì³Ø
+		// ï¿½Ø±ï¿½ï¿½ß³Ì³ï¿½
 		pool.shutdown();
 	}
 
