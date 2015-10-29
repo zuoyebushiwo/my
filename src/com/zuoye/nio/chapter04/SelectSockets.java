@@ -3,6 +3,7 @@ package com.zuoye.nio.chapter04;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.nio.ByteBuffer;
 import java.nio.channels.ClosedChannelException;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -26,7 +27,7 @@ public class SelectSockets {
 		new SelectSockets().go(argv);
 	}
 
-	private void go(String[] argv) {
+	private void go(String[] argv) throws Exception {
 		int port = PORT_NUMBER;
 		if (argv.length > 0) { // Override default listen port
 			port = Integer.parseInt(argv[0]);
@@ -86,14 +87,6 @@ public class SelectSockets {
 		}
 	}
 
-	private void sayHello(SocketChannel channel) {
-
-	}
-
-	private void readDataFromSocket(SelectionKey key) {
-
-	}
-
 	/**
 	 * Register the given channel with the given selector for the given
 	 * operations of interest
@@ -115,6 +108,71 @@ public class SelectSockets {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	// ----------------------------------------------------------
+	// Use the same byte buffer for all channels. A single thread is
+	// Servicing all the channels, so no danager of concurrent accesss.
+	private ByteBuffer buffer = ByteBuffer.allocateDirect(1024);
+
+	/**
+	 * Sample data handler method for a channel with data ready to read
+	 * 
+	 * @param key
+	 * 
+	 *            A SelectionKey object associated with a channel determined by
+	 * 
+	 *            the selector to be ready for reading. If the channel returns
+	 * 
+	 *            an EOF condition, it is closed here, which automatically
+	 * 
+	 *            invalidates the associated key. The selector will than
+	 * 
+	 *            de-register the channel on the next select call.
+	 * @throws IOException
+	 */
+	private void readDataFromSocket(SelectionKey key) throws Exception {
+		SocketChannel socketChannel = (SocketChannel) key.channel();
+		int count;
+
+		buffer.clear(); // Empty buffer
+
+		// Loop while data is available; channel is nonblocking
+		while ((count = socketChannel.read(buffer)) > 0) {
+			buffer.flip(); // Make buffer readable
+
+			// Send the data; don't assume it goes all at once
+			while (buffer.hasRemaining()) {
+				socketChannel.write(buffer);
+			}
+			// WARNING: the above loop is evil. Because
+			// it's writing back to the same nonblocking
+			// channel it read the data from, this code can
+			// potentially spin in a busy loop. In real life
+			// you'd do something more useful than this.
+			buffer.clear(); // Empty buffer
+		}
+
+		if (count < 0) {
+			// Close channel on EOF, invalidates the key
+			socketChannel.close();
+		}
+	}
+
+	// ----------------------------------------------------------
+
+	/**
+	 * Spew a greeting to the incoming client connection.
+	 *
+	 * @param channel
+	 *            The newly connected SocketChannel to say hello to.
+	 * @throws IOException 
+	 */
+	private void sayHello(SocketChannel channel) throws IOException {
+		buffer.clear();
+		buffer.put("Hi there!\r\n".getBytes());
+		buffer.flip();
+		channel.write(buffer);
 	}
 
 }
